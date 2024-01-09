@@ -1,0 +1,339 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Find_minimum_gas_price" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_combustibilType" Type="InArgument(x:String)" />
+    <x:Property Name="in_locatiePlecare" Type="InArgument(x:String)" />
+    <x:Property Name="in_locatieSosire" Type="InArgument(x:String)" />
+    <x:Property Name="out_Price" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DenumirePeco" Type="OutArgument(x:String)" />
+    <x:Property Name="out_locatieBenzinarie1" Type="OutArgument(x:String)" />
+    <x:Property Name="out_locatieBenzinarie2" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>850.4,3648</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Activities.System</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Persistence.Activities.Model.Task</x:String>
+      <x:String>UiPath.Persistence.Activities.FormTask</x:String>
+      <x:String>UiPath.Persistence.Activities.BaseTask</x:String>
+      <x:String>UiPath.Persistence.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Use the Peco-online.ro to find the minimum gas price for the route that we" DisplayName="Use Peco-online to find the minimum gas price" sap:VirtualizedContainerService.HintSize="658.4,3583.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use the Peco site to find the minimum gas price" sap:VirtualizedContainerService.HintSize="596,3440" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="71d85310-9468-42ce-a5db-fd5387dd235f" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="562.4,3223.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:IfElseIf DisplayName="Chose the corect type of gas" sap:VirtualizedContainerService.HintSize="500,1166.4" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+              <ui:IfElseIf.ConditionBlocks>
+                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                  <ui:IfElseIfBlock BlockType="If" Condition="[in_combustibilType = &quot;Motorina&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,269.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NSelectItem DisplayName="Select 'Tip carburant' = Motorina" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_3" Item="Motorina Standard" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Version="V3">
+                          <uix:NSelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="6">
+                              <x:String>Benzina Standard</x:String>
+                              <x:String>Motorina Standard</x:String>
+                              <x:String>GPL</x:String>
+                              <x:String>Benzina Superioara</x:String>
+                              <x:String>Motorina Superioara</x:String>
+                              <x:String>AdBlue</x:String>
+                            </scg:List>
+                          </uix:NSelectItem.Items>
+                          <uix:NSelectItem.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="311, 557, 166, 18" CvTextArgument="Motorina Standard" CvType="Text" DesignTimeRectangle="291, 608, 632, 48" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='carburant' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='carburant' tag='SELECT' type='' class='form-control' aaname='Tip carburant' /&gt;" Guid="e04a3f02-ba1d-483b-ba89-5decbb09b83d" InformativeScreenshot="e7c84c9cb1efe893666e70f68f555304.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvTextArea="288, 573, 120, 22" CvTextArgument="Tip carburant" CvType="Text" DesignTimeRectangle="291, 568, 117, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Tip carburant' check:innerText='Tip carburant' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NSelectItem.Target>
+                        </uix:NSelectItem>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_combustibilType = &quot;Benzina&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,269.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NSelectItem DisplayName="Select 'Tip carburant' = Benzina" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_4" Item="Benzina Standard" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Version="V3">
+                          <uix:NSelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="6">
+                              <x:String>Benzina Standard</x:String>
+                              <x:String>Motorina Standard</x:String>
+                              <x:String>GPL</x:String>
+                              <x:String>Benzina Superioara</x:String>
+                              <x:String>Motorina Superioara</x:String>
+                              <x:String>AdBlue</x:String>
+                            </scg:List>
+                          </uix:NSelectItem.Items>
+                          <uix:NSelectItem.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="310, 622, 167, 18" CvTextArgument="Motorina Standard" CvType="Text" DesignTimeRectangle="291, 608, 632, 48" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='carburant' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='carburant' tag='SELECT' type='' class='form-control' aaname='Tip carburant' /&gt;" Guid="d84ffdfe-9602-4142-9344-faaedc4c99cd" InformativeScreenshot="a4e399c12dc1578ea65c8338b744461f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvTextArea="288, 573, 120, 22" CvTextArgument="Tip carburant" CvType="Text" DesignTimeRectangle="291, 568, 117, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Tip carburant' check:innerText='Tip carburant' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NSelectItem.Target>
+                        </uix:NSelectItem>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="Else">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,269.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NSelectItem DisplayName="Select 'Tip carburant' = GPL" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_5" Item="GPL" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Version="V3">
+                          <uix:NSelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="6">
+                              <x:String>Benzina Standard</x:String>
+                              <x:String>Motorina Standard</x:String>
+                              <x:String>GPL</x:String>
+                              <x:String>Benzina Superioara</x:String>
+                              <x:String>Motorina Superioara</x:String>
+                              <x:String>AdBlue</x:String>
+                            </scg:List>
+                          </uix:NSelectItem.Items>
+                          <uix:NSelectItem.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="310, 622, 167, 18" CvTextArgument="Motorina Standard" CvType="Text" DesignTimeRectangle="291, 608, 632, 48" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='carburant' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='carburant' tag='SELECT' type='' class='form-control' aaname='Tip carburant' /&gt;" Guid="63dc3623-f223-4c7d-891c-b1d0919c773e" InformativeScreenshot="a4e399c12dc1578ea65c8338b744461f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvTextArea="288, 573, 120, 22" CvTextArgument="Tip carburant" CvType="Text" DesignTimeRectangle="291, 568, 117, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Tip carburant' check:innerText='Tip carburant' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NSelectItem.Target>
+                        </uix:NSelectItem>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                </sc:BindingList>
+              </ui:IfElseIf.ConditionBlocks>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:IfElseIf>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type starting point 'Plecare'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="500,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Text="[in_locatiePlecare + &quot; &quot;]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvElementArea="288, 586, 638, 55" CvType="InputBox" DesignTimeRectangle="291, 590, 632, 48" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='start' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='start' tag='INPUT' type='text' class='form-control pac-target-input' aaname='Plecare' /&gt;" Guid="9664fa7d-01f2-495c-9716-c9880e607786" InformativeScreenshot="65750bcd17070d770a714d2473a472ee.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="289, 556, 65, 20" CvTextArgument="Plecare" CvType="Text" DesignTimeRectangle="291, 550, 63, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Plecare' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Plecare' tag='LABEL' type='' class='' check:innerText='Plecare' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="500,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(Down)][u(hk)][d(hk)][k(tab)][u(hk)]" Version="V3" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type end point 'Destinatie'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="500,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Text="[in_locatieSosire + &quot; &quot;]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvElementArea="288, 696, 637, 52" CvType="InputBox" DesignTimeRectangle="291, 698, 632, 48" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='destinatie' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='destinatie' tag='INPUT' type='text' class='form-control pac-target-input' aaname='Destinatie' /&gt;" Guid="181cc02d-6461-4ff9-9028-b996d814e8fc" InformativeScreenshot="c34a2544f6bc6b2476340609451fbc21.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="289, 663, 90, 18" CvTextArgument="Destinatie" CvType="Text" DesignTimeRectangle="291, 658, 88, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Destinatie' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Destinatie' tag='LABEL' type='' class='' check:innerText='Destinatie' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="500,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" Shortcuts="[d(hk)][k(Down)][u(hk)][d(hk)][k(tab)][u(hk)]" Version="V3" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Cauta'" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvElementArea="288, 724, 636, 52" CvTextArea="579, 741, 53, 18" CvTextArgument="Cauta" CvType="Button" DesignTimeRectangle="291, 726, 632, 47" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary btn-block' aaname='Cauta' check:innerText='Cauta' /&gt;" Guid="fd562139-a6d5-489d-9ce9-1063aff01f64" InformativeScreenshot="c23915bacddbbfe85fb64cb81b4c6f95.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="305, 675, 94, 17" CvTextArgument="20 selectate" CvType="Text" DesignTimeRectangle="291, 663, 632, 43" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='button' class='multiselect dropdown-toggle btn btn-default' aaname='Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' check:innerText='20 selectate' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetText DisplayName="Get  the minimum gas price" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_Price]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="339, 523, 42, 22" CvType="AnyWordGroup" DesignTimeRectangle="343, 523, 37, 29" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='pret font-weight-bold' /&gt;" Guid="24fdb159-c7a7-4f67-bcb1-cda63eb503c8" InformativeScreenshot="f272c628ccd4a0e2e39712f690ad09c5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvElementArea="289, 409, 635, 51" CvTextArea="579, 426, 53, 18" CvTextArgument="Cauta" CvType="Button" DesignTimeRectangle="291, 411, 632, 47" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary btn-block' aaname='Cauta' check:innerText='Cauta' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <uix:NGetText DisplayName="Get the gas brand" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_DenumirePeco]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" DesignTimeRectangle="478, 625, 31, 31" DesignTimeScaleFactor="1.25" ElementType="Icon" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' tag='IMG' class='float-left mt-1 mr-1' aaname='Lukoil' /&gt;" Guid="4fe029ca-81cc-4221-9e76-ab97a71ee309" InformativeScreenshot="3fdf47c945a3f1c0e7447f562ca86837.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="291, 519, 632, 47" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary btn-block' aaname='Cauta' check:innerText='Cauta' /&gt;" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <uix:NGetText DisplayName="Get the gas brand location1" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_locatieBenzinarie1]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="454, 538, 87, 18" CvType="AnyWordGroup" DesignTimeRectangle="419, 539, 1226, 16" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl aaname='Huedin, Cluj' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='small d-block text-muted' /&gt;" Guid="c6f03e18-572c-4bed-9100-23b963fc1b24" InformativeScreenshot="5d8ff601df7dba90b498b60c9114210a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvElementArea="289, 436, 635, 51" CvTextArea="579, 452, 53, 18" CvTextArgument="Cauta" CvType="Button" DesignTimeRectangle="291, 438, 632, 47" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary btn-block' aaname='Cauta' check:innerText='Cauta' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <uix:NGetText DisplayName="Get the gas brand location2" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_locatieBenzinarie2]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="454, 561, 332, 18" CvType="AnyWordGroup" DesignTimeRectangle="456, 555, 331, 27" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl idx='2' tableCol='2' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' class='' tag='SPAN' /&gt;" Guid="2f4ccda1-b93c-479c-a6f9-a8cb5673e2db" InformativeScreenshot="a7aea02310f39b1f0ac7ebfaee8b2d19.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvElementArea="289, 436, 635, 51" CvTextArea="579, 452, 53, 18" CvTextArgument="Cauta" CvType="Button" DesignTimeRectangle="291, 438, 632, 47" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary btn-block' aaname='Cauta' check:innerText='Cauta' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGdSURBVDhPYyg+//8/JXiQG1ByAYKLYfgiQg6GUQ2AKQSyi879+x8yecv/oJpJ/4vXn/ufOnv7/5Slx/8Xnv6FUA/EEAOAmorO/vmfe/TT/5wjH/9n73jwP6Rm4n9FbcP/bCws/7V1dP4rKyn9N7Cw+Z+y9vL/kstIBuSf+PY/fM6B/661s/57NC3879my+L9v49z/Slp6/1mYmf4zMDDAMRMz83/LoPj/aStO/S868/N/CdBLDO6N8/7r+Cf99+lc+T9919P/2QffgV3i37fhP6+4LFgjIyPTfy3vmP8WKTX/+cVl/kvLK/73yKj4n7bmwn+G+NWX/mfsfva/9BJqgIFM92xeCDYEZICyne9/365V/8PnHvqv5RMHdp2BT/R/hoJTP4AB9gclYBD43/+4Fef/a3hE/heQVf5vm9v+P2T6rv8mccX/FW08/8cuP0c4HYBcUnDy23/v9mX/lWy8/ksZWP8XUdUFaj7zvxQYmMQlJKCXQF5M3/n4v1Vm03/vtqUQ7wLliDMAiiEJ6x+QDcIQMZIMwIYH2oD//wEDZ+38PwqXzQAAAABJRU5ErkJggg==" InformativeScreenshot="bdbc3505ef9a12d7c48ec48f12c30d65.jpg" Selector="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" Title="Laborator | Trello" Url="https://www.peco-online.ro/ruta.php" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
