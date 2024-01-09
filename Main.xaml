@@ -122,11 +122,7 @@
       <Variable x:TypeArguments="x:String" Name="distanceToPeco" />
       <Variable x:TypeArguments="ui:PasswordCredentials" Name="GmailCredentials" />
       <Variable x:TypeArguments="x:String" Name="mailAdress" />
-      <Variable x:TypeArguments="x:String" Name="mailSender">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">Bumb Tudor</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="Bumb Tudor" Name="mailSender" />
       <Variable x:TypeArguments="x:String" Name="locatieBenzinarie2" />
       <Variable x:TypeArguments="x:String" Name="MailTemplate" />
     </Sequence.Variables>
@@ -135,7 +131,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="596,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Introduceti adresa de mail va rog:" Title="Cerere mail">
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Request the name" sap:VirtualizedContainerService.HintSize="596,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Introduceti va rog numele dumneavoastra:" Title="Nume de contact">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[mailAdress]</OutArgument>
       </ui:InputDialog.Result>
@@ -336,7 +332,7 @@
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="454, 538, 87, 18" CvType="AnyWordGroup" DesignTimeRectangle="419, 539, 1226, 16" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Huedin, Cluj'" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl aaname='Huedin, Cluj' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='small d-block text-muted' /&gt;" Guid="c6f03e18-572c-4bed-9100-23b963fc1b24" InformativeScreenshot="5d8ff601df7dba90b498b60c9114210a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target CvElementArea="289, 436, 635, 51" CvTextArea="579, 452, 53, 18" CvTextArgument="Cauta" CvType="Button" DesignTimeRectangle="291, 438, 632, 47" ElementType="Button" FriendlyName="'Cauta'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary btn-block' aaname='Cauta' check:innerText='Cauta' /&gt;" SearchSteps="FuzzySelector, CV" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -347,7 +343,7 @@
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="454, 561, 332, 18" CvType="AnyWordGroup" DesignTimeRectangle="456, 555, 331, 27" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'str. Protopop'" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl idx='2' tableCol='2' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' class='' tag='SPAN' /&gt;" Guid="2f4ccda1-b93c-479c-a6f9-a8cb5673e2db" InformativeScreenshot="a7aea02310f39b1f0ac7ebfaee8b2d19.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target CvElementArea="289, 436, 635, 51" CvTextArea="579, 452, 53, 18" CvTextArgument="Cauta" CvType="Button" DesignTimeRectangle="291, 438, 632, 47" ElementType="Button" FriendlyName="'Cauta'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary btn-block' aaname='Cauta' check:innerText='Cauta' /&gt;" SearchSteps="FuzzySelector, CV" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -401,7 +397,7 @@
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.waze.com/ro/live-map/directions/ro/bh/oradea/lukoil?to=place.ChIJvYf8jmU4RkcROH0RToT_4Yc&amp;from=place.w.14352855.143725154.22007713" CvTextArea="78, 672, 49, 15" CvType="AnyWordGroup" DesignTimeRectangle="79, 671, 383, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'4.3 km'" FullSelectorArgument="&lt;webctrl class='wm-routes-item-desktop__footer' parentid='map' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='wm-routes-item-desktop__footer' parentid='map' tag='DIV' type='' /&gt;" Guid="f3d2150f-4431-48d0-b4b9-6b9d192f1110" InformativeScreenshot="959c6245dc0c3b2c0acb6f7e5be1049a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Indicații rutiere, trafic în timp real și actualizări ale condițiilor de drum - Waze' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
                       <uix:Target CvElementArea="228, 446, 238, 54" CvTextArea="251, 461, 186, 25" CvTextArgument="Salveaza in aplicatie" CvType="Button" DesignTimeRectangle="229, 448, 234, 50" FriendlyName="'Salvează în aplicație'" FullSelectorArgument="&lt;webctrl isleaf='1' tag='WZ-BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl isleaf='1' tag='WZ-BUTTON' type='' class='' aaname='Salvează în aplicație' check:innerText='Salvează în aplicație' /&gt;" SearchSteps="FuzzySelector, CV" />
                       <uix:Target CvElementArea="29, 601, 38, 38" CvTextArea="41, 611, 11, 17" CvType="Icon" DesignTimeRectangle="34, 606, 30, 30" ElementType="Text" FriendlyName="'1'" FullSelectorArgument="&lt;webctrl class='wm-routes-item-desktop__index' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='wm-routes-item-desktop__index' tag='SPAN' type='' aaname='1' check:innerText='1' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGmSURBVFhH1ZY9TsMwFIArrsBZOrJwCY4A4gRcpWyMLJUqJgQLYuACSAwsSO3C1AEGiFoe+do6ctznxD9BMpE+KUrs9z4579kZfX1XUgL/V+T6dSWnD2sZT3/k8Erk4HIL9zzjHWO0uV0Eibx/VHLxtN4kG03CYCxzmKvFdOkVmTyvogRcmEsMLbZNpwjLrAVPgVhaDoNX5ORuOAkDMbVcoIoMuRIuvpXZE+F7agGGRKuZlggVnlOYoZDD7aaWCO2mTezi/FGkjinzT5GjmT5Gg1x27pZIzGqMpyJntcTLUjbXohY5vtHHapDLzt2IsBtqE3zczrcC5ooVAXsHbkRiO2X2tjPYXSkidgc1IpwT2uA+7hfpIuTcE0ntlhwRu04aEU5QbXAfOSLkLFekmE9TTLGmHnQ5Imr7xm5ohhwRdUODlDoxO2zsWWPXB7REUg69VDoPvWJ+A6CIHyNDageFYHeKjSoCRfw8G4ZcGd9KGDpFgO+ZU8DM1WrCpVcEqHDaLUaIscxxu8NHkIgNuyHLzDlBMk5Q4J5nvLN3zFCiRf6KQkQq+QXXE0BBOgOqJgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, CV" />
                     </scg:List>
@@ -429,7 +425,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ChatGPT" sap:VirtualizedContainerService.HintSize="483.2,1129.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use ChatGPT to made the mail message" sap:VirtualizedContainerService.HintSize="483.2,1129.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -441,7 +437,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'TEXTAREA prompt-textarea'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" Text="[&quot;Trebuie sa trimit un mail in care sa transmit, ca pe traseul de la &quot; + locatiePlecare.ToString + &quot; la &quot; + locatieSosire.ToString +  &quot;, pretul cel mai mic  la &quot; +  combustibilType.ToString +  &quot;,este  de &quot; + Price.ToString + &quot; lei/litru la benzinaria &quot; + DenumirePeco.ToString + &quot; din &quot; + locatieBenzinarie1.ToString + &quot; &quot; + locatieBenzinarie2.ToString + &quot; iar aceasta benzinarie se afla la o distanta de &quot; +  distanceToPeco.ToString + &quot; fata de punctul de plecare. Compune acest mesaj din partea &quot; + mailSender.ToString + &quot; catre destinatarul &quot;  + mailAdress.ToString + &quot;.&quot;]" Version="V3">
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type request for make mail message" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" Text="[&quot;Trebuie sa trimit un mail in care sa transmit, ca pe traseul de la &quot; + locatiePlecare.ToString + &quot; la &quot; + locatieSosire.ToString +  &quot;, pretul cel mai mic  la &quot; +  combustibilType.ToString +  &quot;,este  de &quot; + Price.ToString + &quot; lei/litru la benzinaria &quot; + DenumirePeco.ToString + &quot; din &quot; + locatieBenzinarie1.ToString + &quot; &quot; + locatieBenzinarie2.ToString + &quot; iar aceasta benzinarie se afla la o distanta de &quot; +  distanceToPeco.ToString + &quot; fata de punctul de plecare. Compune acest mesaj din partea &quot; + mailSender.ToString + &quot; catre destinatarul &quot;  + mailAdress.ToString + &quot;.&quot;]" Version="V3">
                 <uix:NTypeInto.Target>
                   <uix:TargetAnchorable BrowserURL="https://chat.openai.com/" CvTextArea="665, 946, 179, 22" CvTextArgument="Message ChatGPT..." CvType="Text" DesignTimeRectangle="648, 923, 958, 65" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'TEXTAREA prompt-textarea'" FullSelectorArgument="&lt;webctrl id='prompt-textarea' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='prompt-textarea' tag='TEXTAREA' type='' class='m-0 w-full resize-none border-0 bg-transparent py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4' aaname='' /&gt;" Guid="49298cf9-9e04-47ae-aedc-efd5c54b00bf" InformativeScreenshot="f796b35559d4a1245a237c898c5f1474.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ChatGPT' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -452,7 +448,7 @@
                   </uix:TargetAnchorable>
                 </uix:NTypeInto.Target>
               </uix:NTypeInto>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'ChatGPT can'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" Timeout="20" Version="V3">
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click the send button" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" Timeout="20" Version="V3">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://chat.openai.com/c/8065a6df-81fb-492d-bb5a-313c0dfdef5f" DesignTimeRectangle="1557, 940, 30, 30" DesignTimeScaleFactor="1.25" ElementType="Icon" FriendlyName="'SVG'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;span&amp;gt;svg' parentid='__next' tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='__next' tag='svg' class='text-white dark:text-black' aaname='' /&gt;" Guid="dfc7152a-d8e2-4f96-b0d9-e95f4eb64993" InformativeScreenshot="27d4068a4e8b7f3f0648071be28cb4c6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ChatGPT' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -463,7 +459,7 @@
                   </uix:TargetAnchorable>
                 </uix:NClick.Target>
               </uix:NClick>
-              <uix:NGetText DelayBefore="20" DisplayName="Get Text 'ChatGPT'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" TextString="[MailTemplate]" Version="V3">
+              <uix:NGetText DelayBefore="18" DisplayName="Get the answer of our request" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" TextString="[MailTemplate]" Version="V3">
                 <uix:NGetText.Target>
                   <uix:TargetAnchorable BrowserURL="https://chat.openai.com/c/8065a6df-81fb-492d-bb5a-313c0dfdef5f" DesignTimeRectangle="717, 594, 766, 850" DesignTimeScaleFactor="1.25" FriendlyName="'Subject: Informații'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='9' parentid='__next' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='markdown prose w-full break-words dark:prose-invert dark' parentid='__next' tag='DIV' aaname='' /&gt;" Guid="1d10edc1-8854-4745-8d28-7dd81326bdec" InformativeScreenshot="cfcf753c873341204cdbc57394e25d5a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ChatGPT' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -484,8 +480,8 @@
         </uix:NApplicationCard.TargetApp>
       </uix:NApplicationCard>
     </Sequence>
-    <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" AutosubmitTimeoutSeconds="10" Credential="[GmailCredentials]" CredentialName="UiPath: Gmail" CredentialsSource="CredentialsManager" DisplayName="Get Username/Password" sap:VirtualizedContainerService.HintSize="596,178.4" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_1" />
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[MailTemplate]" DisplayName="Send SMTP Mail Message" Email="[GmailCredentials.Username]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="596,148.8" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Password="[GmailCredentials.Password]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[&quot;Minimum gas price&quot; + DenumirePeco.ToString]" To="bumbtudor03@gmail.com">
+    <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" AutosubmitTimeoutSeconds="10" Credential="[GmailCredentials]" CredentialName="UiPath: Gmail" CredentialsSource="CredentialsManager" DisplayName="Get Username/Password for gmail" sap:VirtualizedContainerService.HintSize="596,178.4" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_1" />
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[MailTemplate]" DisplayName="Send SMTP Mail Message" Email="[GmailCredentials.Username]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="596,148.8" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Password="[GmailCredentials.Password]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[&quot;Minimum gas price for route&quot; + locatiePlecare + &quot;to&quot; + locatieSosire]" To="bumbtudor03@gmail.com">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
       </ui:SendMail.Files>
