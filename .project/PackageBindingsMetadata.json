@@ -728,6 +728,22 @@
         },
         "DefaultValueSource": "Default"
       }
+    ],
+    "UiPath.Persistence.Activities.FormTask.CreateFormTask": [
+      {
+        "Type": "taskcatalog",
+        "Values": {
+          "name": {
+            "Value": "TaskCatalog",
+            "ValueSource": "Property"
+          },
+          "folderPath": {
+            "Value": "FolderPath",
+            "ValueSource": "Property"
+          }
+        },
+        "DefaultValueSource": "Default"
+      }
     ]
   }
 }
