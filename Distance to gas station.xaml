@@ -6,7 +6,7 @@
     <x:Property Name="in_locatieBenzinarie2" Type="InArgument(x:String)" />
     <x:Property Name="io_distanceToPeco" Type="InOutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>850.4,1804</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850.4,1848</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -120,7 +120,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Use the Waze to find the distance from start to the gas station with the best price on the route&#xD;&#xA;" DisplayName="Use Waze to find the distance to gas station" sap:VirtualizedContainerService.HintSize="545.6,1783.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
+  <Sequence sap2010:Annotation.AnnotationText="Use the Waze to find the distance from start to the gas station with the best price on the route&#xA;" DisplayName="Use Waze to find the distance to gas station" sap:VirtualizedContainerService.HintSize="545.6,1783.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -162,7 +162,7 @@
                 </uix:TargetAnchorable>
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(Enter)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V3" />
             <uix:NGetText DelayBefore="5" DisplayName="Get the distance to the gas station" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="c5888d1e-4af8-478a-98c5-49b241d25f43" TextString="[io_distanceToPeco]" Version="V3">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.waze.com/ro/live-map/directions/ro/bh/oradea/lukoil?to=place.ChIJvYf8jmU4RkcROH0RToT_4Yc&amp;from=place.w.14352855.143725154.22007713" CvTextArea="78, 672, 49, 15" CvType="AnyWordGroup" DesignTimeRectangle="79, 671, 383, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='wm-routes-item-desktop__footer' parentid='map' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='wm-routes-item-desktop__footer' parentid='map' tag='DIV' type='' /&gt;" Guid="f3d2150f-4431-48d0-b4b9-6b9d192f1110" InformativeScreenshot="959c6245dc0c3b2c0acb6f7e5be1049a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Indicații rutiere, trafic în timp real și actualizări ale condițiilor de drum - Waze' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">

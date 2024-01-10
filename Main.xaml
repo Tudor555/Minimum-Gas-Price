@@ -118,19 +118,19 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="449.6,1093.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="combustibilType" />
-      <Variable x:TypeArguments="x:String" Name="locatiePlecare" />
-      <Variable x:TypeArguments="x:String" Name="locatieSosire" />
-      <Variable x:TypeArguments="x:String" Name="Price" />
-      <Variable x:TypeArguments="x:String" Name="locatieBenzinarie1" />
-      <Variable x:TypeArguments="x:String" Name="DenumirePeco" />
-      <Variable x:TypeArguments="x:String" Name="distanceToPeco" />
+      <Variable x:TypeArguments="x:String" Name="FuelType" />
+      <Variable x:TypeArguments="x:String" Name="StartPoint" />
+      <Variable x:TypeArguments="x:String" Name="DestinationPoint" />
+      <Variable x:TypeArguments="x:String" Name="FuelPrice" />
+      <Variable x:TypeArguments="x:String" Name="GasStation1" />
+      <Variable x:TypeArguments="x:String" Name="GasStationBrand" />
+      <Variable x:TypeArguments="x:String" Name="DistanceToGasStation" />
       <Variable x:TypeArguments="ui:PasswordCredentials" Name="GmailCredentials" />
-      <Variable x:TypeArguments="x:String" Name="mailAdress" />
-      <Variable x:TypeArguments="x:String" Default="Bumb Tudor" Name="mailSender" />
-      <Variable x:TypeArguments="x:String" Name="locatieBenzinarie2" />
+      <Variable x:TypeArguments="x:String" Name="MailAdress" />
+      <Variable x:TypeArguments="x:String" Default="Bumb Tudor" Name="MailSender" />
+      <Variable x:TypeArguments="x:String" Name="GasStation2" />
       <Variable x:TypeArguments="x:String" Name="MailTemplate" />
-      <Variable x:TypeArguments="x:String" Name="SubjectMail" />
+      <Variable x:TypeArguments="x:String" Name="MailSubject" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -139,50 +139,58 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Input sequence - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Input sequence.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_mailAdress">[mailAdress]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_combustibilType">[combustibilType]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_locatiePlecare">[locatiePlecare]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_locatieSosire">[locatieSosire]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_mailAdress">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="MailAdress" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_combustibilType">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="FuelType" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_locatiePlecare">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="StartPoint" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_locatieSosire">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="DestinationPoint" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Minimum gas price - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Minimum gas price.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_combustibilType">[combustibilType]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatiePlecare">[locatiePlecare]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieSosire">[locatieSosire]</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Price">[Price]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_DenumirePeco">[DenumirePeco]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_locatieBenzinarie1">[locatieBenzinarie1]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_locatieBenzinarie2">[locatieBenzinarie2]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_combustibilType">[FuelType]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_locatiePlecare">[StartPoint]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_locatieSosire">[DestinationPoint]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Price">[FuelPrice]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_DenumirePeco">[GasStationBrand]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_locatieBenzinarie1">[GasStation1]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_locatieBenzinarie2">[GasStation2]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Distance to gas station - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Distance to gas station.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatiePlecare">[locatiePlecare]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie1">[locatieBenzinarie1]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_DenumirePeco">[DenumirePeco]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie2">[locatieBenzinarie2]</InArgument>
-        <InOutArgument x:TypeArguments="x:String" x:Key="io_distanceToPeco">[distanceToPeco]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_locatiePlecare">[StartPoint]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie1">[GasStation1]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DenumirePeco">[GasStationBrand]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie2">[GasStation2]</InArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_distanceToPeco">[DistanceToGasStation]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Mail construction - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Mail construction.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_combustibilType">[combustibilType]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatiePlecare">[locatiePlecare]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieSosire">[locatieSosire]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Price">[Price]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie1">[locatieBenzinarie1]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_DenumirePeco">[DenumirePeco]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_distanceToPeco">[distanceToPeco]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_combustibilType">[FuelType]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_locatiePlecare">[StartPoint]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_locatieSosire">[DestinationPoint]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Price">[FuelPrice]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie1">[GasStation1]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DenumirePeco">[GasStationBrand]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_distanceToPeco">[DistanceToGasStation]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_mailAdress">[mailAdress]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_mailSender">[mailSender]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie2">[locatieBenzinarie2]</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_SubjectMail">[SubjectMail]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie2">[GasStation2]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_SubjectMail">[MailSubject]</OutArgument>
         <InOutArgument x:TypeArguments="x:String" x:Key="io_MailTemplate">[MailTemplate]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" AutosubmitTimeoutSeconds="10" Credential="[GmailCredentials]" CredentialName="UiPath: Gmail" CredentialsSource="CredentialsManager" DisplayName="Get Username/Password for gmail" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_1" />
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[MailTemplate]" DisplayName="Send SMTP Mail Message" Email="[GmailCredentials.Username]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="387.2,148.8" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Password="[GmailCredentials.Password]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[SubjectMail]" To="bumbtudor03@gmail.com">
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[MailTemplate]" DisplayName="Send SMTP Mail Message" Email="[GmailCredentials.Username]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="387.2,148.8" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Password="[GmailCredentials.Password]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[MailSubject]" To="bumbtudor03@gmail.com">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
       </ui:SendMail.Files>
