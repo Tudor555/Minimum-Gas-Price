@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,1158.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uas="clr-namespace:UiPath.Activities.System;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,3493.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uas="clr-namespace:UiPath.Activities.System;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -114,9 +114,12 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="449.6,1093.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="496,1429.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FuelType" />
       <Variable x:TypeArguments="x:String" Name="StartPoint" />
@@ -126,71 +129,245 @@
       <Variable x:TypeArguments="x:String" Name="GasStationBrand" />
       <Variable x:TypeArguments="x:String" Name="DistanceToGasStation" />
       <Variable x:TypeArguments="ui:PasswordCredentials" Name="GmailCredentials" />
-      <Variable x:TypeArguments="x:String" Name="MailAdress" />
+      <Variable x:TypeArguments="x:String" Name="PersonName" />
       <Variable x:TypeArguments="x:String" Default="Bumb Tudor" Name="MailSender" />
       <Variable x:TypeArguments="x:String" Name="GasStation2" />
       <Variable x:TypeArguments="x:String" Name="MailTemplate" />
       <Variable x:TypeArguments="x:String" Name="MailSubject" />
+      <Variable x:TypeArguments="x:String" Name="MailBody" />
+      <Variable x:TypeArguments="x:String" Name="SubjectTitle" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Input sequence - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Input sequence.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Input sequence - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Input sequence.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_mailAdress">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="MailAdress" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_combustibilType">
+        <OutArgument x:TypeArguments="x:String" x:Key="out_FuelType">
           <VisualBasicReference x:TypeArguments="x:String" ExpressionText="FuelType" />
         </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_locatiePlecare">
+        <OutArgument x:TypeArguments="x:String" x:Key="out_PersonName">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="PersonName" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_StartPoint">
           <VisualBasicReference x:TypeArguments="x:String" ExpressionText="StartPoint" />
         </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_locatieSosire">
+        <OutArgument x:TypeArguments="x:String" x:Key="out_DestinationPoint">
           <VisualBasicReference x:TypeArguments="x:String" ExpressionText="DestinationPoint" />
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Minimum gas price - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Minimum gas price.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Minimum gas price - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Minimum gas price.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_combustibilType">[FuelType]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatiePlecare">[StartPoint]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieSosire">[DestinationPoint]</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Price">[FuelPrice]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_DenumirePeco">[GasStationBrand]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_locatieBenzinarie1">[GasStation1]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_locatieBenzinarie2">[GasStation2]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_FuelType">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="FuelType" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StartPoint">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="StartPoint" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DestinationPoint">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="DestinationPoint" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_FuelPrice">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="FuelPrice" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_GasStationBrand">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="GasStationBrand" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_GasStation1">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="GasStation1" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_GasStation2">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="GasStation2" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Distance to gas station - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Distance to gas station.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Distance to gas station - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Distance to gas station.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatiePlecare">[StartPoint]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie1">[GasStation1]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_DenumirePeco">[GasStationBrand]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie2">[GasStation2]</InArgument>
-        <InOutArgument x:TypeArguments="x:String" x:Key="io_distanceToPeco">[DistanceToGasStation]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StartPoint">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="StartPoint" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_GasStation2">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="GasStation2" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_GasStation1">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="GasStation1" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_GasStationBrand">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="GasStationBrand" />
+        </InArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_DistanceToGasStation">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="DistanceToGasStation" />
+        </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Mail construction - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Mail construction.xaml">
+    <ui:CommentOut DisplayName="Comment Out Google maps with if" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="622.4,2407.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[DistanceToGasStation = String.Empty]" sap:VirtualizedContainerService.HintSize="560,2295.2" sap2010:WorkflowViewState.IdRef="If_1">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="526.4,2112" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Google Maps" sap:VirtualizedContainerService.HintSize="483.2,2022.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="faa75896-6e4f-4eda-a86b-f62c7ae47799" Version="V2">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,1805.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'BUTTON hArJGc'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="faa75896-6e4f-4eda-a86b-f62c7ae47799" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/@45.941869,24.978284,7z?entry=ttu" DesignTimeRectangle="522, 175, 67, 60" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl id='hArJGc' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='hArJGc' tag='BUTTON' type='' class='hArJGc vF7Cdb google-symbols' aaname=' ' /&gt;" Guid="99d3af82-69a2-466d-824c-e0b7a8d04952" InformativeScreenshot="fd1bd4c287ce3a82c93569a5bb778978.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Google Maps' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <uix:Target CvElementArea="475, 188, 33, 31" CvType="Icon" DesignTimeRectangle="477, 190, 30, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='searchbox-searchbutton' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='searchbox-searchbutton' tag='SPAN' type='' class='google-symbols' aaname='' check:innerText='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJlSURBVFhH7Zb/T1JRFMD9k9PUSCUhQUJkZWmmsVH4DbW0rbXZnDpXI1JbJSqZ1vxS+XWCjAfIBifO2X1v+rjv8e4DrB/4bHeMe+4778N5755LHfwn1ETU1ETUCIlks1mIx89pJBIJyOVyLFI+JUXy+Txsbm1D94NeqG9uhRtNLcpovH0HnvoDcHB4xFabR1ckk8lAYCRYJKAeKDS3sFhWhTRFUqk0+PxDys0sVjtMvHwFP3d24SwWg8jaBjwbHoOGW20UR9m3s/NUQTNwRTAZJpUr0fvEB0lJYtGr7P/6DR0uj1KZjeg3FhGDK3Jyego2h5uSP+ofpOrogVVqbXfQ+r4BH1wUXmpRuCKL70KU9KbFCmvrUTarz8zsHF1jsd6Fnd09Nmscrsjw2AQl9RR2iiSl2Kw+eHOUwOvCSyts1jhFIvh++AOjlLCnbwDS6QyL6IO9xe7souuwOqJwK/K8sBtERXAnye9VxUTGX0xTQntnF8RicTarz9b2D2hqaaedhltbFK7Il9UIJcTx4eMym9UGH2dwcorksSq460ThiuA54vLcp8SOe144Oj5hET6fPn+lHoLrsemZaWpcEeRycpvTDdHN70U3wJb+PhSG5sIjwXVtNif8OThkUTE0RdTdFT+dbi8MjY7DSHCSXmirvZNilwceC6UaIA9NEQRlQuEl5RdrDbe3Bx4+HlS+m5HRFZFJJiWqToerWznkUA7b+WpknR6R+pAUlTEkYpRyZCoqgpiVqbgIYkamKiKIqEzVRBC1zOs3M5p/J6sqgsgy/7QiMliFUn+sr0XECDURNTWRqwD8BSThJG28DDmBAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into ''" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="faa75896-6e4f-4eda-a86b-f62c7ae47799" Text="[StartPoint]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/dir///@45.941869,24.978284,7z/data=!4m2!4m1!3e0?entry=ttu" CvTextArea="186, 265, 291, 21" CvTextArgument="Alege un punct de pornire sau da cli" CvType="Text" DesignTimeRectangle="189, 325, 288, 30" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl aria-label='Alege un punct de pornire sau dă clic pe hartă...' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Alege un punct de pornire sau dă clic pe hartă...' tag='INPUT' type='' class='tactile-searchbox-input' placeholder='Alege un punct de pornire sau dă clic pe hartă...' aaname='' /&gt;" Guid="7fb5310a-a2ac-48c6-9f52-0821275a97fe" InformativeScreenshot="5210870431eb73456ebe593904a40b6e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Google Maps' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <uix:Target CvElementArea="182, 318, 345, 42" CvType="InputBox" DesignTimeRectangle="482, 325, 30, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='directions-searchbox-0' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='directions-searchbox-0' tag='SPAN' type='' class='cKwKUe google-symbols' aaname='' check:innerText='' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                        <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into ''" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="faa75896-6e4f-4eda-a86b-f62c7ae47799" Text="[GasStationBrand + &quot; &quot; + GasStation1 + &quot; &quot; + GasStation2]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/dir///@45.941869,24.978284,7z/data=!4m2!4m1!3e0?entry=ttu" CvElementArea="180, 384, 348, 41" CvType="InputBox" DesignTimeRectangle="177, 373, 354, 54" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl aria-label='Alege destinația...' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Alege destinația...' tag='INPUT' type='' class='tactile-searchbox-input' placeholder='Alege destinația...' aaname='' /&gt;" Guid="7c9acb05-a8fe-48c8-9192-ddae83a4a145" InformativeScreenshot="ae648d4e95af3cdf9f945261daa3fd2f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Google Maps' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <uix:Target CvElementArea="549, 351, 28, 32" CvType="Icon" DesignTimeRectangle="549, 353, 30, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='' parentid='omnibox-directions' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='' parentid='omnibox-directions' tag='SPAN' type='' class='ExQYxb reverse google-symbols' check:innerText='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFnSURBVFhH7dZPSsNAFMdxj6LgLRREwX3FQ1g8hUppexX1JnVRc4NAXadu8mcTXvkNGXk+MsnM5CltyRcCSTolH9KSlxPak0aI7HAheZ5TmqbNkV5BECCenl/o4vKKVquP5qxO3hCLOD07N5s2xgsiEX+B6YW4EHbTwnRCJOJh+mgujP0p29fAOCFVVdFsNv9BALTZfNHk7t4cv769m4tzTJIkzbfD67wj6/UnXd/cGgTuTpZlvyDIYuaLJZVlac7F1PsfwTMDCNQGQXxNbL0Qngui0XFCiqIwa7bbb6rrujnrlyoE5/AZ1mBtSIcJwe3GbcdF8DPI/g3S1wjBQ4y/JLVB5BpX0RA8zvFY5wNPQoDAeMCYwLjoKhqCAccHHjAcggHJJzcGKAapq0E/jZy+eDWw+3hlsAg7NLsa/GflmLbNB4EGQ5AL44tAKhAkMSEIpAZBFhOKQKoQFPuSpA6JbYTI9gRCtANoa9sD1hByJwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                        <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Detalii'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="faa75896-6e4f-4eda-a86b-f62c7ae47799" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/dir/Ale%C8%99d,+415100/Beba+Veche,+307035/@46.5593105,20.6892949,9z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x47462a38220d6dd1:0x6357d9c75106fdd!2m2!1d22.3980649!2d47.0590191!1m5!1m1!1s0x4744f2d8ce5a0199:0xd85b4612c995235a!2m2!1d20.2992527!2d46.1320202!3e0?entry=ttu" CvTextArea="188, 753, 52, 17" CvTextArgument="Detalii" CvType="Text" DesignTimeRectangle="189, 753, 51, 22" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='section-directions-trip-details-msg-0' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='section-directions-trip-details-msg-0' tag='SPAN' type='' class='' aaname='Detalii' check:innerText='Detalii' /&gt;" Guid="718d7cdc-e491-4cc1-a667-41ed6bffb2f6" InformativeScreenshot="24bab9f616aa7f95720bcf438f97e355.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Aleșd, 415100 către Beba Veche, 307035 - Google Maps' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <uix:Target CvTextArea="166, 610, 318, 17" CvTextArgument="Trimite indicatii de orientare pe telefon" CvType="Text" DesignTimeRectangle="119, 597, 377, 47" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Trimite indicații de orientare pe telefon' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Trimite indicații de orientare pe telefon' tag='BUTTON' type='' class='qS6JSb fontTitleSmall XbJon' check:innerText='&amp;#xD;&amp;#xA;Trimite indicații de orientare pe telefon' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NGetText DelayBefore="5" DisplayName="Get Text '(251 km)'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="faa75896-6e4f-4eda-a86b-f62c7ae47799" TextString="[DistanceToGasStation]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/dir/Ale%C8%99d,+415100/Beba+Veche,+307035/@46.5593105,20.6892949,9z/am=t/data=!4m14!4m13!1m5!1m1!1s0x47462a38220d6dd1:0x6357d9c75106fdd!2m2!1d22.3980649!2d47.0590191!1m5!1m1!1s0x4744f2d8ce5a0199:0xd85b4612c995235a!2m2!1d20.2992527!2d46.1320202!3e0?entry=ttu" CvTextArea="261, 342, 102, 31" CvType="AnyWordGroup" DesignTimeRectangle="262, 341, 102, 35" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='hPzYFf' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='hPzYFf' tag='SPAN' type='' /&gt;" Guid="ba4ef9a7-4628-41e0-8036-ee433ca434de" InformativeScreenshot="dc423ba0ed35324c00a5633fc995bd06.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Aleșd, 415100 către Beba Veche, 307035 - Google Maps' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <uix:Target CvElementArea="450, 337, 32, 37" CvType="Icon" DesignTimeRectangle="452, 342, 30, 30" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-label='Trimite indicații de orientare pe telefon' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Trimite indicații de orientare pe telefon' tag='BUTTON' type='' class='J45yZc ACmaHb google-symbols Nuf5De' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAEcSURBVFhHY/g/SMCoQ9ABUQ55dXjO//xYv//efiTi2ML/sw6/gpqCHxB0yMethf/VFVX+K5CNtf/nb/0INQ03IOiQo81QA7UtsfsaDzbVhuptPgY1DTcg4JBX/1ckQg1LXAXkkQJI00u8QyjBw9Mhtin/6/r6/vcQjRv+J9rSwiGDJo0MSod8Pfe/Nbb9/9mvUD5WQFWH/P//4+PH/x/fAfHHHxCBj8f+t7pALXDB5xgqOwQbeLQ6BVHa4nQMpQ75AQ0BvPjV/7PTQiGW4HQMhQ55BfQt3AJSMIZjBtAhR1HqtuESNcQA+iRWNDBIsi8Ow+hfoJFmGCoY9g4ZNM0ASvDwdMjAppFB050YRB0sEBgUXU56gVGHoIL//wE5xRIYFiAQ/AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,144" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[DistanceToGasStation]" />
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAOuSURBVFhHvZZrSFNRHMCvaQoVJWGRLjI/9MAepHdbimbNqWEP0D2gB4KRXxKU2LKoFFY5owIjwiLyg2Tp3SqMJPMVQpAf+hBC9KCCIMuuU5hzm+I2PZ0r/7vO7k7M6fIHvw/O/z2/49n1bkz4oCiZgc+QGX6XygzDNTIjb046w1cmGodytplQLAxFno2n7fFJxuFr2MEkI4+kJlfZfqlqnTzWXGByroXLIkOiYViLI7w0KrqhyubJueJEuWaX6GhurVMPly8MHKjAzpBB0vVneJR1aZyM+1WZXedhmfnRd/jIyZ2Vn6ZpYUH8/iOlaYwa91vnPAXLhceISr7Fpla4v+5XuVTl/dQN7Kq206OBTuRfcWyCZeeOTa18jDeABH/kZ88cK3sWEE89P0qLUc26++ghLDs3+AJlCg5PixsQ5NVKdKHkzmx841nhjndfUpudqrzLrh3qWpcBh8alYcHs2+0eOaf1sc2aRFg+NDhYScZJH+vK36RfHmNh1E9u7WSy2uwaIuM59W+RvFU/jTeAWIvGCKOhwaEn0vCsBfIJ1/V1pTAWhLrOXSTG913/hhQtJUiIgw9gLDQ41h8Uz5PPTN5f7UYmZgmMBYNQFI7bVVdtSNlcTsaRgtO+hqnQ4OCAdAOuG+uQpzf6O4z8k9w6x/eMpprZYydlOe0HGAkN/mu7yLjjXAry9sYIelEfEw9jQewz2eMzG+sd0rhguCfQJMbtZVuQt2epuAHk641ugLEgMh5U1dPigmyr1gJjobHlKSuE+Kh+p8/zIs4fB2ewNfgkYmCcQVYmuqF9+y0cCjp6UbyBShgPzUh+WtLIftYx9WSZNE76BZ/GPe+rmKcfO1ePZnCaSVpYVMkVb4bl58ZE86o2SjRIW89yVGg9OEWL+rXoumHZuTPVFbsVB6akQVJ3byw68VRFjxIqrPq9sGx4eHtiTLSwaHWbkhokZTlNeJ8DJKiDicOhz9KwYOPzVGowQIt2kG05mgDLzQ9Pz9I0HJwg490dG4T/a3r0r17Wqs+GZRYGvtuPi/H3nQko01LspQQDVFg0C/s2JAXfDzeHulZ4cyxFY7RggBbdSwYxUXBpZBAePAeshW3UICF+5v9Ms+rXwGWRJe2RJhlHqM960JfeqtsD4/8HeaumhBIWvQhj/xfhySaN46MfiPj7/i8UnEYh3UA6pzsEv14c8HOgk9jAO3h58SDvBXz8Bnh58dj98PhKHBc+gn2ZVr0MXl5cWE6nF04CfpwHDPMH5T/3xQh0hLAAAAAASUVORK5CYII=" InformativeScreenshot="02e6596906e16cd33fbcf3f6756204eb.jpg" Selector="&lt;html app='chrome.exe' title='Google Maps' /&gt;" Title="Google Maps" Url="https://www.google.com/maps/@45.941869,24.978284,7z?entry=ttu" />
+                  </uix:NApplicationCard.TargetApp>
+                </uix:NApplicationCard>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4" />
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Mail construction - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Mail construction.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_combustibilType">[FuelType]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatiePlecare">[StartPoint]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieSosire">[DestinationPoint]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Price">[FuelPrice]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie1">[GasStation1]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_DenumirePeco">[GasStationBrand]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_distanceToPeco">[DistanceToGasStation]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_mailAdress">[mailAdress]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_mailSender">[mailSender]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_locatieBenzinarie2">[GasStation2]</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_SubjectMail">[MailSubject]</OutArgument>
-        <InOutArgument x:TypeArguments="x:String" x:Key="io_MailTemplate">[MailTemplate]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_MailTemplate">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="MailTemplate" />
+        </InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_GasStation1">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="GasStation1" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_MailSender">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="MailSender" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_GasStation2">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="GasStation2" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_FuelType">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="FuelType" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StartPoint">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="StartPoint" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DestinationPoint">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="DestinationPoint" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_FuelPrice">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="FuelPrice" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_GasStationBrand">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="GasStationBrand" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DistanceToGasStation">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="DistanceToGasStation" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PersonName">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="PersonName" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_MailSubject">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="MailSubject" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" AutosubmitTimeoutSeconds="10" Credential="[GmailCredentials]" CredentialName="UiPath: Gmail" CredentialsSource="CredentialsManager" DisplayName="Get Username/Password for gmail" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_1" />
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[MailTemplate]" DisplayName="Send SMTP Mail Message" Email="[GmailCredentials.Username]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="387.2,148.8" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Password="[GmailCredentials.Password]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[MailSubject]" To="bumbtudor03@gmail.com">
+    <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" AutosubmitTimeoutSeconds="10" Credential="[GmailCredentials]" CredentialName="UiPath: Gmail" CredentialsSource="CredentialsManager" DisplayName="Get Username/Password for gmail" sap:VirtualizedContainerService.HintSize="433.6,178.4" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_1" />
+    <Assign DisplayName="Remove word subject from subject title" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[SubjectTitle]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[MailSubject.Remove(0, 9)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Remove subject title from body" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[MailBody]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[MailTemplate.Remove(0, MailSubject.Length)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[MailBody]" DisplayName="Send SMTP Mail Message" Email="[GmailCredentials.Username]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="433.6,148.8" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Password="[GmailCredentials.Password]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[SubjectTitle]" To="bumbtudor03@gmail.com">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
       </ui:SendMail.Files>

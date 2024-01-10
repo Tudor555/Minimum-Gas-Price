@@ -1,9 +1,9 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Input_sequence" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="out_mailAdress" Type="OutArgument(x:String)" />
-    <x:Property Name="out_combustibilType" Type="OutArgument(x:String)" />
-    <x:Property Name="out_locatiePlecare" Type="OutArgument(x:String)" />
-    <x:Property Name="out_locatieSosire" Type="OutArgument(x:String)" />
+    <x:Property Name="out_FuelType" Type="OutArgument(x:String)" />
+    <x:Property Name="out_PersonName" Type="OutArgument(x:String)" />
+    <x:Property Name="out_StartPoint" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DestinationPoint" Type="OutArgument(x:String)" />
   </x:Members>
   <sap:VirtualizedContainerService.HintSize>850.4,1428.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
@@ -125,22 +125,22 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Request the name" sap:VirtualizedContainerService.HintSize="387.2,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Introduceti va rog numele dumneavoastra:" Title="Nume de contact">
         <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[out_mailAdress]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_PersonName]</OutArgument>
         </ui:InputDialog.Result>
       </ui:InputDialog>
       <ui:InputDialog OptionsString="{x:Null}" DisplayName="Select type of gas" sap:VirtualizedContainerService.HintSize="387.2,295.2" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Alegeti combustibilul" Options="[{&quot;Motorina&quot;,&quot;Benzina&quot;,&quot;GPL&quot;}]" Title="Tipul de combustibil">
         <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[out_combustibilType]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_FuelType]</OutArgument>
         </ui:InputDialog.Result>
       </ui:InputDialog>
       <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Write the starting point " sap:VirtualizedContainerService.HintSize="387.2,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Alegeti punctul de plecare" Title="Punctul de plecare">
         <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[out_locatiePlecare]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_StartPoint]</OutArgument>
         </ui:InputDialog.Result>
       </ui:InputDialog>
       <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Write the end point" sap:VirtualizedContainerService.HintSize="387.2,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="Alegeti punctul de sosire" Title="Punctul de sosire">
         <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[out_locatieSosire]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_DestinationPoint]</OutArgument>
         </ui:InputDialog.Result>
       </ui:InputDialog>
     </Sequence>
