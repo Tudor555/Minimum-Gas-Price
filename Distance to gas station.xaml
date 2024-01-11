@@ -6,7 +6,7 @@
     <x:Property Name="locatieBenzinarie2" Type="InArgument(x:String)" />
     <x:Property Name="distanceToPeco" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>850.4,2015.1999999999998</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850.4,2046.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -115,14 +115,14 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Use Google Maps to fibnd the distance be" DisplayName="Find distance to gas station" sap:VirtualizedContainerService.HintSize="545.6,1981.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap2010:Annotation.AnnotationText="Use Google Maps to find the distance beetwen start point and gas station" DisplayName="Find distance to gas station" sap:VirtualizedContainerService.HintSize="545.6,1981.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Google Maps" sap:VirtualizedContainerService.HintSize="483.2,1838.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Google Maps to find the distance" sap:VirtualizedContainerService.HintSize="483.2,1838.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -134,7 +134,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'BUTTON hArJGc'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click indication button" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/@47.071232,21.9414528,13z?entry=ttu" DesignTimeRectangle="522, 240, 67, 60" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl id='hArJGc' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='hArJGc' tag='BUTTON' type='' class='hArJGc vF7Cdb google-symbols' aaname=' ' /&gt;" Guid="c6d4966c-2402-4891-8f3e-fa9824b94fa8" InformativeScreenshot="3528d9f8d703d08ac27976b61bea1195.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Google Maps' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -145,8 +145,7 @@
                 </uix:TargetAnchorable>
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(Down)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V3" />
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into ''" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Text="[locatiePlecare]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type start point" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Text="[locatiePlecare]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/dir///@47.071232,21.9414528,13z/data=!4m2!4m1!3e0?entry=ttu" CvTextArea="186, 330, 291, 21" CvTextArgument="Alege un punct de pornire sau da cli" CvType="Text" DesignTimeRectangle="189, 325, 288, 30" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl aria-label='Alege un punct de pornire sau dă clic pe hartă...' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Alege un punct de pornire sau dă clic pe hartă...' tag='INPUT' type='' class='tactile-searchbox-input' placeholder='Alege un punct de pornire sau dă clic pe hartă...' aaname='' /&gt;" Guid="e54134e1-8471-4191-b860-fbb79ae0d4f4" InformativeScreenshot="04c2e2e2f019c79b4b8ec2978cf779b8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Google Maps' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -157,7 +156,8 @@
                 </uix:TargetAnchorable>
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'DIV'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Text="[DenumirePeco + &quot; &quot; + locatieBenzinarie1 + &quot; &quot; + locatieBenzinarie2]" Version="V3">
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Shortcuts="[d(hk)][k(Down)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V3" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type destination point" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Text="[DenumirePeco + &quot; &quot; + locatieBenzinarie1 + &quot; &quot; + locatieBenzinarie2]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/dir///@47.071232,21.9414528,13z/data=!4m2!4m1!3e0?entry=ttu" CvElementArea="180, 384, 348, 41" CvType="InputBox" DesignTimeRectangle="189, 385, 330, 30" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl aria-label='Alege destinația...' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Alege destinația...' tag='INPUT' type='' class='tactile-searchbox-input' placeholder='Alege destinația...' aaname='' /&gt;" Guid="e6561a21-c330-45ce-abf9-dedb2a39b8ab" InformativeScreenshot="cd0ddef9757a6b2d1e543cd56273f4bf.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Google Maps' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -168,7 +168,7 @@
                 </uix:TargetAnchorable>
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(Down)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V3" />
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Shortcuts="[d(hk)][k(Down)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V3" />
             <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Detalii'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/dir/Vadu+Cri%C8%99ului/Oradea/@47.0346488,22.048662,11z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x4748837f81d14009:0x25f66eb95baaefe4!2m2!1d22.5158872!2d46.987441!1m5!1m1!1s0x474647e368762353:0x1b55a486d65d5344!2m2!1d21.9189438!2d47.0465005!3e0?entry=ttu" CvTextArea="188, 753, 52, 17" CvTextArgument="Detalii" CvType="Text" DesignTimeRectangle="189, 753, 51, 22" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='section-directions-trip-details-msg-0' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='section-directions-trip-details-msg-0' tag='SPAN' type='' class='' aaname='Detalii' check:innerText='Detalii' /&gt;" Guid="010c7cdb-e35a-44d7-afd8-f66bf934f585" InformativeScreenshot="9ef16dc3fb9f07cafba6b51816b82d4a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Vadu Crișului către Oradea - Google Maps' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
@@ -180,7 +180,7 @@
                 </uix:TargetAnchorable>
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NGetText DisplayName="Get Text '(56,7 km)'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" TextString="[distanceToPeco]" Version="V3">
+            <uix:NGetText DisplayName="Get the distance" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="ac4bff69-2cba-4abb-bb94-4a6abd2da3d0" TextString="[distanceToPeco]" Version="V3">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/dir/Vadu+Cri%C8%99ului/Oradea/@47.0346488,22.048662,11z/am=t/data=!4m14!4m13!1m5!1m1!1s0x4748837f81d14009:0x25f66eb95baaefe4!2m2!1d22.5158872!2d46.987441!1m5!1m1!1s0x474647e368762353:0x1b55a486d65d5344!2m2!1d21.9189438!2d47.0465005!3e0?entry=ttu" CvTextArea="166, 342, 115, 30" CvType="AnyWordGroup" DesignTimeRectangle="168, 341, 114, 35" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='hPzYFf' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='hPzYFf' tag='SPAN' type='' /&gt;" Guid="d96a331d-202d-4ef3-9707-391405d797ef" InformativeScreenshot="3696d9f5011ddfe46758b311ba6f5519.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Vadu Crișului către Oradea - Google Maps' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
