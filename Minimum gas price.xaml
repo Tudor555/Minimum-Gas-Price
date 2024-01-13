@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Find_minimum_gas_price" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_combustibilType" Type="InArgument(x:String)" />
-    <x:Property Name="in_locatiePlecare" Type="InArgument(x:String)" />
-    <x:Property Name="in_locatieSosire" Type="InArgument(x:String)" />
-    <x:Property Name="out_Price" Type="OutArgument(x:String)" />
-    <x:Property Name="out_DenumirePeco" Type="OutArgument(x:String)" />
-    <x:Property Name="out_locatieBenzinarie1" Type="OutArgument(x:String)" />
-    <x:Property Name="out_locatieBenzinarie2" Type="OutArgument(x:String)" />
+    <x:Property Name="in_FuelType" Type="InArgument(x:String)" />
+    <x:Property Name="in_StartPoint" Type="InArgument(x:String)" />
+    <x:Property Name="in_DestinationPoint" Type="InArgument(x:String)" />
+    <x:Property Name="out_FuelPrice" Type="OutArgument(x:String)" />
+    <x:Property Name="out_GasStationBrand" Type="OutArgument(x:String)" />
+    <x:Property Name="out_GasStationLocation1" Type="OutArgument(x:String)" />
+    <x:Property Name="out_GasStationLocation2" Type="OutArgument(x:String)" />
   </x:Members>
   <sap:VirtualizedContainerService.HintSize>850.4,3648</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
@@ -144,7 +144,7 @@
             <ui:IfElseIf DisplayName="Chose the corect type of gas" sap:VirtualizedContainerService.HintSize="500,1166.4" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
               <ui:IfElseIf.ConditionBlocks>
                 <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
-                  <ui:IfElseIfBlock BlockType="If" Condition="[in_combustibilType = &quot;Motorina&quot;]">
+                  <ui:IfElseIfBlock BlockType="If" Condition="[in_FuelType = &quot;Motorina&quot;]">
                     <ui:IfElseIfBlock.Then>
                       <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,269.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
@@ -176,7 +176,7 @@
                       </Sequence>
                     </ui:IfElseIfBlock.Then>
                   </ui:IfElseIfBlock>
-                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_combustibilType = &quot;Benzina&quot;]">
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_FuelType = &quot;Benzina&quot;]">
                     <ui:IfElseIfBlock.Then>
                       <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,269.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
@@ -249,7 +249,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:IfElseIf>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type starting point 'Plecare'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="500,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Text="[in_locatiePlecare + &quot; &quot;]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type starting point 'Plecare'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="500,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Text="[in_StartPoint + &quot; &quot;]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvElementArea="288, 586, 638, 55" CvType="InputBox" DesignTimeRectangle="291, 590, 632, 48" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='start' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='start' tag='INPUT' type='text' class='form-control pac-target-input' aaname='Plecare' /&gt;" Guid="9664fa7d-01f2-495c-9716-c9880e607786" InformativeScreenshot="65750bcd17070d770a714d2473a472ee.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -261,7 +261,7 @@
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
             <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="500,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(Down)][u(hk)][d(hk)][k(tab)][u(hk)]" Version="V3" />
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type end point 'Destinatie'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="500,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Text="[in_locatieSosire + &quot; &quot;]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type end point 'Destinatie'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="500,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" Text="[in_DestinationPoint + &quot; &quot;]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvElementArea="288, 696, 637, 52" CvType="InputBox" DesignTimeRectangle="291, 698, 632, 48" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='destinatie' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='destinatie' tag='INPUT' type='text' class='form-control pac-target-input' aaname='Destinatie' /&gt;" Guid="181cc02d-6461-4ff9-9028-b996d814e8fc" InformativeScreenshot="c34a2544f6bc6b2476340609451fbc21.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -284,7 +284,7 @@
                 </uix:TargetAnchorable>
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NGetText DisplayName="Get  the minimum gas price" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_Price]" Version="V3">
+            <uix:NGetText DisplayName="Get  the minimum gas price" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_FuelPrice]" Version="V3">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="339, 523, 42, 22" CvType="AnyWordGroup" DesignTimeRectangle="343, 523, 37, 29" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='pret font-weight-bold' /&gt;" Guid="24fdb159-c7a7-4f67-bcb1-cda63eb503c8" InformativeScreenshot="f272c628ccd4a0e2e39712f690ad09c5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -295,7 +295,7 @@
                 </uix:TargetAnchorable>
               </uix:NGetText.Target>
             </uix:NGetText>
-            <uix:NGetText DisplayName="Get the gas brand" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_DenumirePeco]" Version="V3">
+            <uix:NGetText DisplayName="Get the gas brand" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_GasStationBrand]" Version="V3">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" DesignTimeRectangle="478, 625, 31, 31" DesignTimeScaleFactor="1.25" ElementType="Icon" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' tag='IMG' class='float-left mt-1 mr-1' aaname='Lukoil' /&gt;" Guid="4fe029ca-81cc-4221-9e76-ab97a71ee309" InformativeScreenshot="3fdf47c945a3f1c0e7447f562ca86837.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -306,7 +306,7 @@
                 </uix:TargetAnchorable>
               </uix:NGetText.Target>
             </uix:NGetText>
-            <uix:NGetText DisplayName="Get the gas brand location1" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_locatieBenzinarie1]" Version="V3">
+            <uix:NGetText DisplayName="Get the gas brand location1" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_GasStationLocation1]" Version="V3">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="454, 538, 87, 18" CvType="AnyWordGroup" DesignTimeRectangle="419, 539, 1226, 16" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl aaname='Huedin, Cluj' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='small d-block text-muted' /&gt;" Guid="c6f03e18-572c-4bed-9100-23b963fc1b24" InformativeScreenshot="5d8ff601df7dba90b498b60c9114210a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -317,7 +317,7 @@
                 </uix:TargetAnchorable>
               </uix:NGetText.Target>
             </uix:NGetText>
-            <uix:NGetText DisplayName="Get the gas brand location2" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_locatieBenzinarie2]" Version="V3">
+            <uix:NGetText DisplayName="Get the gas brand location2" sap:VirtualizedContainerService.HintSize="500,157.6" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="71d85310-9468-42ce-a5db-fd5387dd235f" TextString="[out_GasStationLocation2]" Version="V3">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.peco-online.ro/ruta.php" CvTextArea="454, 561, 332, 18" CvType="AnyWordGroup" DesignTimeRectangle="456, 555, 331, 27" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl idx='2' tableCol='2' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tabelaRezultate' tag='TABLE' /&gt;&lt;webctrl type='' class='' tag='SPAN' /&gt;" Guid="2f4ccda1-b93c-479c-a6f9-a8cb5673e2db" InformativeScreenshot="a7aea02310f39b1f0ac7ebfaee8b2d19.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Pret benzina, motorina si GPL: Gazprom, Lukoil, Mol, OMV, Petrom, Rompetrol, Socar, ALD, BLKOil, CellyRo, DriveGas, Fermierul, MaximCoLtd, Metropoli, Ozana, Petrolium, Petromar, RoOscar, RST, VhExtraOil' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>

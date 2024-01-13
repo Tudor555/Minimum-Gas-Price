@@ -1,19 +1,19 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Mail_construction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_combustibilType" Type="InArgument(x:String)" />
-    <x:Property Name="in_locatiePlecare" Type="InArgument(x:String)" />
-    <x:Property Name="in_locatieSosire" Type="InArgument(x:String)" />
-    <x:Property Name="in_Price" Type="InArgument(x:String)" />
-    <x:Property Name="in_locatieBenzinarie1" Type="InArgument(x:String)" />
-    <x:Property Name="in_DenumirePeco" Type="InArgument(x:String)" />
-    <x:Property Name="in_distanceToPeco" Type="InArgument(x:String)" />
-    <x:Property Name="in_mailAdress" Type="InArgument(x:String)" />
-    <x:Property Name="in_mailSender" Type="InArgument(x:String)" />
-    <x:Property Name="in_locatieBenzinarie2" Type="InArgument(x:String)" />
     <x:Property Name="out_SubjectMail" Type="OutArgument(x:String)" />
     <x:Property Name="io_MailTemplate" Type="InOutArgument(x:String)" />
+    <x:Property Name="in_FuelType" Type="InArgument(x:String)" />
+    <x:Property Name="in_StartPoint" Type="InArgument(x:String)" />
+    <x:Property Name="in_FuelPrice" Type="InArgument(x:String)" />
+    <x:Property Name="in_DestinationPoint" Type="InArgument(x:String)" />
+    <x:Property Name="in_GasStationBrand" Type="InArgument(x:String)" />
+    <x:Property Name="in_MailSender" Type="InArgument(x:String)" />
+    <x:Property Name="in_PersonName" Type="InArgument(x:String)" />
+    <x:Property Name="in_DistanceToGasStation" Type="InArgument(x:String)" />
+    <x:Property Name="in_GasStationLocation1" Type="InArgument(x:String)" />
+    <x:Property Name="in_GasStationLocation2" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>850.4,1504</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850.4,1548</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -146,7 +146,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type request for make mail message" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" Text="[&quot;Trebuie sa trimit un mail in care sa transmit, ca pe traseul de la &quot; + in_locatiePlecare.ToString + &quot; la &quot; + in_locatieSosire.ToString +  &quot;, pretul cel mai mic  la &quot; +  in_combustibilType.ToString +  &quot;,este  de &quot; + in_Price.ToString + &quot; lei/litru la benzinaria &quot; + in_DenumirePeco.ToString + &quot; din &quot; + in_locatieBenzinarie1.ToString + &quot; &quot; + in_locatieBenzinarie2.ToString + &quot; iar aceasta benzinarie se afla la o distanta de &quot; +  in_distanceToPeco.ToString + &quot; fata de punctul de plecare. Compune acest mesaj din partea &quot; + in_mailSender.ToString + &quot; catre destinatarul &quot;  + in_mailAdress.ToString + &quot;.&quot;]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type request for make mail message" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="871ab035-d2cd-4c7d-bba8-a1e86eb3ed07" Text="[&quot;Trebuie sa trimit un mail in care sa transmit, ca pe traseul de la &quot; + in_StartPoint.ToString + &quot; la &quot; + in_DestinationPoint.ToString +  &quot;, pretul cel mai mic  la &quot; +  in_FuelType.ToString +  &quot;,este  de &quot; + in_FuelPrice.ToString + &quot; lei/litru la benzinaria &quot; + in_GasStationBrand.ToString + &quot; din &quot; + in_GasStationLocation1.ToString + &quot; &quot; + in_GasStationLocation2.ToString + &quot; iar aceasta benzinarie se afla la o distanta de &quot; +  in_DistanceToGasStation.ToString + &quot; fata de punctul de plecare. Compune acest mesaj din partea &quot; + in_mailSender.ToString + &quot; catre destinatarul &quot;  + in_PersonName.ToString + &quot;.&quot;]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://chat.openai.com/" CvTextArea="665, 946, 179, 22" CvTextArgument="Message ChatGPT..." CvType="Text" DesignTimeRectangle="648, 923, 958, 65" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='prompt-textarea' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='prompt-textarea' tag='TEXTAREA' type='' class='m-0 w-full resize-none border-0 bg-transparent py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4' aaname='' /&gt;" Guid="49298cf9-9e04-47ae-aedc-efd5c54b00bf" InformativeScreenshot="f796b35559d4a1245a237c898c5f1474.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ChatGPT' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
